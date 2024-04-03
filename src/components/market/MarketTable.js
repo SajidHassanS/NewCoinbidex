@@ -26,7 +26,7 @@ const TableList = ({ data }) => {
   return (
     <div className=" overflow-x-auto  px-6">
       <table className="table-fixed w-full ">
-        <thead className="text-xs  font-semibold uppercase border border-gray-100 bg-blue-100 text-black-500 bg-gray-50">
+        <thead className="text-xs  font-semibold uppercase border border-gray-100 bg-gray-100 text-black-500 bg-gray-50">
           <tr className=" ">
             <th className="p-2 whitespace-nowrap">
               {" "}
