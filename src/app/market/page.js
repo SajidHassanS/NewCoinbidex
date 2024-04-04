@@ -31,7 +31,7 @@ const Market = () => {
     <>
       <Layout>
         <div className="bg-blue-100 w-full ">
-          <div className="max-w-screen-xl mt-32  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
+          <div className="max-w-screen-xl mt-16 md:mt-32  px-6 sm:px-8 lg:px-16 mx-auto flex flex-col w-full text-center justify-center">
             <div className="flex flex-col w-full mt-16 mb-10">
               <div className="content">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

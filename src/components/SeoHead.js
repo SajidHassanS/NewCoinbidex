@@ -91,7 +91,7 @@ const SeoHead = (props) => {
       <meta name='msapplication-TileColor' content='#F53838' />
       <meta
         name='msapplication-TileImage'
-        content='./logonew.png'
+        content='/logonew.png'
       />
       {/* Accent color on supported browser */}
       <meta name='theme-color' content='#F53838' />
@@ -134,7 +134,7 @@ const favicons = [
   {
     rel: 'apple-touch-icon',
     sizes: '144x144',
-    href: '/faviconlogonew.png',
+    href: '/logonew.png',
   },
   {
     rel: 'apple-touch-icon',

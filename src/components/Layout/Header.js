@@ -41,7 +41,7 @@ const Header = () => {
       <header
         className={
           "fixed top-0 w-full  z-30 bg-white-500 transition-all " +
-          (scrollActive ? " shadow-md pt-0" : "shadow-md pt-0")
+          (scrollActive ? " md:shadow-md pt-0" : "md:shadow-md pt-0")
         }
       >
         <div className="hidden md:block">

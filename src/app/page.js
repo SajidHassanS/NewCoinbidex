@@ -2,10 +2,12 @@
 import react,{useEffect} from "react"
 import Layout from "../components/Layout/Layout";
 import SeoHead from "../components/SeoHead";
+
 import BuyCrypto from "../components/homePage/BuyCrypto";
 import Hero from "../components/homePage/Hero";
 import Pricing from "../components/homePage/Pricing";
 import Image from "next/image";
+import TitleChart from "../components/homePage/TitleChart";
 
 
 export default function Home() {
@@ -56,9 +58,10 @@ export default function Home() {
       <Layout >
         <Hero />
         <BuyCrypto />
+        <TitleChart/>
         <Pricing />
       </Layout>
-      <div className="custom-tradingview-widget-containers main-traker fixed bottom-0 " style={{width:"100%"}}>
+      <div className="custom-tradingview-widget-containers main-traker fixed bottom-0 z-50 " style={{width:"100%"}}>
           <div className="custom-tradingview-widget-containers__widget"></div>
           <div className="custom-tradingview-widget-copyright"></div>
         </div>

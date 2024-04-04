@@ -505,7 +505,7 @@ border-top-left-radius: 70%;
     padding: 2rem;
     width: auto;
     background: black;
-    z-index: 10000;
+    z-index: 10;
     border: 1px solid white;
     border-left: none;
 }

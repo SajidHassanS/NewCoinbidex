@@ -24,10 +24,10 @@ const commerce = () => {
        <div className="bg-white-500">
        <GetSet/>
        </div>
-       <div className=" bg-blue-200">
+       <div className=" bg-blue-200 py-16 md:py-4">
        <GetupMain/>
        </div>
-       <div className="bg-white-300 pt-10  pb-32">
+       <div className="bg-white-300 pt-10 hidden md:block  pb-32">
        <BelowSection/>
        </div>
        <div className="bg-blue-200">
