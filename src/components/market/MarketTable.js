@@ -9,11 +9,10 @@ import ButtonOutline from "../misc/ButtonOutline";
 const Tab = ({ label, active, onClick }) => {
   return (
     <button
-      className={`${
-        active
-          ? "border-b-4 px-8 py-2  hover:bg-blue-800 bg-white-300 text-blue-800 hover:text-white-300 border-blue-500"
-          : " text-black-600"
-      } focus:outline-none mr-4 `}
+      className={`${active
+        ? "border-b-4 px-8 py-2  hover:bg-blue-800 bg-white-300 text-blue-800 hover:text-white-300 border-blue-500"
+        : " text-black-600"
+        } focus:outline-none mr-4 `}
       onClick={onClick}
     >
       {label}
@@ -137,7 +136,7 @@ const TableList = ({ data }) => {
           </tr>
         </thead>
         <tbody className="text-sm ">
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <tr
               key={index}
               className="hover:bg-blue-100 border-b border-gray-400 "
@@ -146,33 +145,33 @@ const TableList = ({ data }) => {
             >
               <td className="p-2 whitespace-nowrap">
                 <div className="flex items-center ">
-               <div className="mr-3"> <GoStar /></div>
-               
+                  <div className="mr-3"> <GoStar /></div>
+
                   <div className=" flex-shrink-0 mr-2 sm:mr-3">
                     <img
                       className="rounded-full"
-                      src={item.avatar}
+                      src={item.logo}
                       width="25"
                       height="25"
-                      alt={item.name}
+                      alt={item.useSymbol}
                     />
                   </div>
-                  <div className=" text-gray-800">{item.symbol}</div>
+                  <div className=" text-gray-800">{item.useSymbol}</div>
                 </div>
               </td>
-              <td className="p-2 whitespace-nowrap">{item.price}</td>
-              <td className="p-2 whitespace-nowrap  text-green-500">
-                {item.change}
+              <td className="p-2 whitespace-nowrap">${parseFloat(item.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 })}</td>
+              <td className={parseFloat(item.priceChangePercent) < 0 ? "p-2 whitespace-nowrap text-red-300" : "p-2 whitespace-nowrap text-green-300"}>
+                {parseFloat(item.priceChangePercent).toFixed(1)}%
               </td>
-              <td className="p-2 whitespace-nowrap  text-green-500">
-                {item.high}
+              <td className="p-2 whitespace-nowrap text-green-300">
+                ${parseFloat(item.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 })}
               </td>
-              <td className="p-2 whitespace-nowrap  text-green-500">
-                {item.low}
+              <td className="p-2 text-red-300 whitespace-nowrap ">
+                $ {parseFloat(item.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 })}
               </td>
 
-              <td className="p-2 whitespace-nowrap  text-center">
-                {item.volume}
+              <td className="p-2 whitespace-nowrap text-start">
+                ${parseFloat(item.volume) > 0 ? parseFloat(item.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(item.volume).toLocaleString(undefined, { maximumFractionDigits: 6 })}
               </td>
 
               <td className="px-2 whitespace-nowrap  text-white-500  text-center">
@@ -599,11 +598,12 @@ const tabsData = [
   },
 ];
 
-const MarketTable = () => {
+const MarketTable = ({ marketData }) => {
   return (
     <>
       <div className=" mx-auto px-4 py-5">
-        <Tabs tabsData={tabsData} />
+        {/* <Tabs tabsData={tabsData} /> */}
+        <TableList data={marketData} />
       </div>
     </>
   );

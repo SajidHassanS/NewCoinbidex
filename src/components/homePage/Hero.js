@@ -11,9 +11,11 @@ import UnlockPotential from "./UnlockPotential";
 
 import MyTabs from "./MyTabs";
 import MobileTab from "./MobileTab";
+import { useMarketDataStore } from "@/store/marketDataStore";
 
 const Hero = ({}) => {
   const [isMobile, setIsMobile] = useState(false);
+  const { marketData, updateMarketData } = useMarketDataStore()
 
   useEffect(() => {
     const handleResize = () => {
