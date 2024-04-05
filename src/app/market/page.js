@@ -28,7 +28,7 @@ const Market = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-// Empty dependency array ensures the effect runs only once after initial render
+  // Empty dependency array ensures the effect runs only once after initial render
 
 
   return (
@@ -76,7 +76,7 @@ const Market = () => {
 
         <div className="bg-white-300 ">
           <div className="hidden sm:block max-w-screen-xl py-8 px-2 sm:px-8  mx-auto">
-            <MarketTable marketData={marketData} />
+            <MarketTable />
           </div>
           <div className="sm:hidden block max-w-screen-xl py-8 px-2 sm:px-8  mx-auto">
             <MobileMarketTable />

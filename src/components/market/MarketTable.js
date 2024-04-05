@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoMdArrowDropup } from "react-icons/io";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -6,6 +6,7 @@ import { GoStar } from "react-icons/go";
 
 
 import ButtonOutline from "../misc/ButtonOutline";
+import { useMarketDataStore } from "@/store/marketDataStore";
 const Tab = ({ label, active, onClick }) => {
   return (
     <button
@@ -150,28 +151,28 @@ const TableList = ({ data }) => {
                   <div className=" flex-shrink-0 mr-2 sm:mr-3">
                     <img
                       className="rounded-full"
-                      src={item.logo}
+                      src={item.avatar}
                       width="25"
                       height="25"
-                      alt={item.useSymbol}
+                      alt={item.name}
                     />
                   </div>
-                  <div className=" text-gray-800">{item.useSymbol}</div>
+                  <div className=" text-gray-800">{item.name}</div>
                 </div>
               </td>
-              <td className="p-2 whitespace-nowrap">${parseFloat(item.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 })}</td>
-              <td className={parseFloat(item.priceChangePercent) < 0 ? "p-2 whitespace-nowrap text-red-300" : "p-2 whitespace-nowrap text-green-300"}>
-                {parseFloat(item.priceChangePercent).toFixed(1)}%
+              <td className="p-2 whitespace-nowrap">${item.price}</td>
+              <td className={`p-2 whitespace-nowrap font-medium ${parseFloat(item.change) > 0 ? "text-green-300" : "text-red-300"}`}>
+                {item.change}
               </td>
               <td className="p-2 whitespace-nowrap text-green-300">
-                ${parseFloat(item.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 })}
+                ${item.highPrice}
               </td>
               <td className="p-2 text-red-300 whitespace-nowrap ">
-                $ {parseFloat(item.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 })}
+                $ {item.lowPrice}
               </td>
 
               <td className="p-2 whitespace-nowrap text-start">
-                ${parseFloat(item.volume) > 0 ? parseFloat(item.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(item.volume).toLocaleString(undefined, { maximumFractionDigits: 6 })}
+                ${item.volume}
               </td>
 
               <td className="px-2 whitespace-nowrap  text-white-500  text-center">
@@ -206,7 +207,7 @@ const Tabs = ({ tabsData }) => {
     <div className="border border-blue-100 bg-white-500 rounded-lg">
       <div className="flex flex-col justify-center align-middle items-center">
         <div className="flex p-3   w-full   justify-between">
-          {tabsData.map((tab, index) => (
+          {tabsData?.map((tab, index) => (
             <Tab
               key={index}
               label={tab.label}
@@ -231,7 +232,7 @@ const Tabs = ({ tabsData }) => {
           </div>
         </div>
         <div className=" w-full rounded-lg ">
-          {tabsData.map((tab, index) => (
+          {tabsData?.map((tab, index) => (
             <div key={index} className={activeTab === index ? "" : "hidden"}>
               <TableList data={tab.data} />
             </div>
@@ -242,368 +243,134 @@ const Tabs = ({ tabsData }) => {
   );
 };
 
-// Usage example
-const tabsData = [
-  {
-    label: "Favorite",
-    data: [
-      {
-        icon: <GoStar />,
-        symbol: "LOOM",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/loom.png",
-      },
-      {
-        symbol: "AITECH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/aitech.png",
-      },
-      {
-        symbol: "STASH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/stash.jpeg",
-      },
-      {
-        symbol: "AITECH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/aitech.png",
-      },
-      {
-        symbol: "STASH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/stash.jpeg",
-      },
-      {
-        symbol: "AITECH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/aitech.png",
-      },
-      {
-        symbol: "STASH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/stash.jpeg",
-      },
-      {
-        symbol: "AITECH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/aitech.png",
-      },
-      {
-        symbol: "STASH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/stash.jpeg",
-      },
-      {
-        symbol: "AITECH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/aitech.png",
-      },
-      {
-        symbol: "STASH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/stash.jpeg",
-      },
-      {
-        symbol: "ZK",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/zk.png",
-      },
-      {
-        symbol: "ETHFI",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/ethfi.png",
-      },
-      {
-        symbol: "ETHFI",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/ethfi.png",
-      },
-      {
-        symbol: "ETHFI",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/ethfi.png",
-      },
-      {
-        symbol: "ETHFI",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        high: "+19.05%",
-        low: "+11.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/ethfi.png",
-      },
-    ],
-  },
-  {
-    label: "Sector",
-    data: [
-      {
-        symbol: "LOOM",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/loom.png",
-      },
-      {
-        symbol: "AITECH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/aitech.png",
-      },
-      {
-        symbol: "STASH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/stash.jpeg",
-      },
-      {
-        symbol: "ZK",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/zk.png",
-      },
-      {
-        symbol: "ETHFI",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/ethfi.png",
-      },
-    ],
-  },
-  {
-    label: "New Listed",
-    data: [
-      {
-        symbol: "LOOM",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/loom.png",
-      },
-      {
-        symbol: "AITECH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/aitech.png",
-      },
-      {
-        symbol: "STASH",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/stash.jpeg",
-      },
-      {
-        symbol: "ZK",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/zk.png",
-      },
-      {
-        symbol: "ETHFI",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "../../assets/ethfi.png",
-      },
-    ],
-  },
-  {
-    label: "Spot Market",
-    data: [
-      {
-        symbol: "Alice Brown",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "Bob Williams",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "Eva Davis",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "Jack Wilson",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "Sophia Martinez",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-    ],
-  },
-  {
-    label: "Futures Market",
-    data: [
-      {
-        symbol: "Mark Taylor",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "Sarah Clark",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "Oliver Lewis",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "Emma Turner",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-      {
-        symbol: "James Rodriguez",
-        price: " 0.0002321/$0.0002 ",
-        change: "+17.05%",
-        volume: "29.2701421",
-        button: "Trade",
-        avatar: "https://via.placeholder.com/150",
-      },
-    ],
-  },
-  {
-    label: "Leveraged Token",
-    data: [
-      // Add data for Tab 4
-    ],
-  },
-];
 
-const MarketTable = ({ marketData }) => {
+
+const MarketTable = () => {
+  const { marketData } = useMarketDataStore()
+  const [tabData, setTabData] = useState()
+  useEffect(() => {
+    // Usage example
+    const tabsData = [
+      {
+        label: "Favorite",
+        data: [],
+      },
+      {
+        label: "Sector",
+        data: [],
+      },
+      {
+        label: "New Listed",
+        data: [],
+      },
+      {
+        label: "Spot Market",
+        data: [],
+      },
+      {
+        label: "Futures Market",
+        data: [],
+      },
+      {
+        label: "Leveraged Token",
+        data: [],
+      },
+    ];
+    // Function to randomly select coins from the 17 coins array
+    function getRandomCoins(array, count) {
+      const shuffled = array?.sort(() => 0.5 - Math.random());
+      return shuffled?.slice(0, count);
+    }
+    // Add coins to 'Favourite' tab
+    const favouriteCoins = getRandomCoins(marketData, 10); // Assuming adding 5 random coins
+    favouriteCoins?.forEach((coin) => {
+      tabsData[0].data.push({
+        symbol: coin.useSymbol,
+        price: '$' + parseFloat(coin.lastPrice) > 0 ? parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        highPrice: '$' + parseFloat(coin.highPrice) > 0 ? parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        lowPrice: '$' + parseFloat(coin.lowPrice) > 0 ? parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        change: parseFloat(coin.priceChangePercent).toFixed(1) + '%',
+        volume: parseFloat(coin.volume) > 0 ? parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        button: 'Trade',
+        avatar: coin.logo,
+      });
+    });
+    // Add coins to 'Sector' tab
+    const sectorCoins = getRandomCoins(marketData, 5); // Assuming adding 5 random coins
+    sectorCoins?.forEach((coin) => {
+      tabsData[1].data.push({
+        symbol: coin.useSymbol,
+        price: '$' + parseFloat(coin.lastPrice) > 0 ? parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        highPrice: '$' + parseFloat(coin.highPrice) > 0 ? parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        lowPrice: '$' + parseFloat(coin.lowPrice) > 0 ? parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        change: parseFloat(coin.priceChangePercent).toFixed(1) + '%',
+        volume: parseFloat(coin.volume) > 0 ? parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        button: 'Trade',
+        avatar: coin.logo,
+      });
+    });
+    // Add coins to 'New Listed' tab
+    const newCoins = getRandomCoins(marketData, 5); // Assuming adding 5 random coins
+    newCoins?.forEach((coin) => {
+      tabsData[2].data.push({
+        symbol: coin.useSymbol,
+        price: '$' + parseFloat(coin.lastPrice) > 0 ? parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        highPrice: '$' + parseFloat(coin.highPrice) > 0 ? parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        lowPrice: '$' + parseFloat(coin.lowPrice) > 0 ? parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        change: parseFloat(coin.priceChangePercent).toFixed(1) + '%',
+        volume: parseFloat(coin.volume) > 0 ? parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        button: 'Trade',
+        avatar: coin.logo,
+      });
+    });
+    // Add coins to 'Spot Market' tab
+    const spotCoins = getRandomCoins(marketData, 5); // Assuming adding 5 random coins
+    spotCoins?.forEach((coin) => {
+      tabsData[3].data.push({
+        symbol: coin.useSymbol,
+        price: '$' + parseFloat(coin.lastPrice) > 0 ? parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        highPrice: '$' + parseFloat(coin.highPrice) > 0 ? parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        lowPrice: '$' + parseFloat(coin.lowPrice) > 0 ? parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        change: parseFloat(coin.priceChangePercent).toFixed(1) + '%',
+        volume: parseFloat(coin.volume) > 0 ? parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        button: 'Trade',
+        avatar: coin.logo,
+      });
+    });
+    // Add coins to 'Futures Market' tab
+    const futureCoins = getRandomCoins(marketData, 5); // Assuming adding 5 random coins
+    futureCoins?.forEach((coin) => {
+      tabsData[4].data.push({
+        symbol: coin.useSymbol,
+        price: '$' + parseFloat(coin.lastPrice) > 0 ? parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        highPrice: '$' + parseFloat(coin.highPrice) > 0 ? parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        lowPrice: '$' + parseFloat(coin.lowPrice) > 0 ? parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        change: parseFloat(coin.priceChangePercent).toFixed(1) + '%',
+        volume: parseFloat(coin.volume) > 0 ? parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        button: 'Trade',
+        avatar: coin.logo,
+      });
+    });
+    // Add coins to 'Leveraged Market' tab
+    const LeveragedCoins = getRandomCoins(marketData, 5); // Assuming adding 5 random coins
+    LeveragedCoins?.forEach((coin) => {
+      tabsData[5].data.push({
+        symbol: coin.useSymbol,
+        price: '$' + parseFloat(coin.lastPrice) > 0 ? parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lastPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        highPrice: '$' + parseFloat(coin.highPrice) > 0 ? parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.highPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        lowPrice: '$' + parseFloat(coin.lowPrice) > 0 ? parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.lowPrice).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        change: parseFloat(coin.priceChangePercent).toFixed(1) + '%',
+        volume: parseFloat(coin.volume) > 0 ? parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 1 }) : parseFloat(coin.volume).toLocaleString(undefined, { maximumFractionDigits: 6 }),
+        button: 'Trade',
+        avatar: coin.logo,
+      });
+    });
+    setTabData(tabsData)
+  }, [marketData])
   return (
     <>
       <div className=" mx-auto px-4 py-5">
-        {/* <Tabs tabsData={tabsData} /> */}
-        <TableList data={marketData} />
+        <Tabs tabsData={tabData} />
       </div>
     </>
   );

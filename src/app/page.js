@@ -86,7 +86,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <SeoHead title="Coinbidex" />
+      {/* <SeoHead title="Coinbidex" /> */}
       <Layout >
         <Hero />
         <BuyCrypto />
