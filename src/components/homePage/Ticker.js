@@ -1,6 +1,7 @@
 "use client"
 import React from "react";
 import Ticker from "react-ticker";
+import { GrAnnounce } from "react-icons/gr";
 
 
 const TickerNews = () => {
@@ -16,12 +17,15 @@ const TickerNews = () => {
 
   return (
     <div className="d-flex justify-center align-middle ">
- 
+  <div className=" absolute left-80 " > <GrAnnounce color="white"/></div>
 
       <div
-        className=" max-w-screen-xl text-white-300  px-18 xl:px-8 mx-auto"
+        className=" max-w-screen-xl text-white-300   px-18 xl:px-8 mx-auto"
         style={{ whiteSpace: "nowrap" }}
       >
+       
+       
+     
         <Ticker speed={6}>
           {({ index }) => (
             <div>
