@@ -48,7 +48,7 @@ const Header = () => {
           <NumberTable />
         </div>
         <div className="w-full text-gray-700 bg-cream ">
-          <div className="flex flex-col  px-8 py-3 mx-auto xl:items-center xl:justify-between xl:flex-row relative">
+          <div className="flex flex-col  px-8 py-3 mx-auto lg:items-center lg:justify-between lg:flex-row relative">
             <div className="flex flex-row items-center justify-between ">
               <div className="relative ">
                 <Link href="/">
@@ -63,7 +63,7 @@ const Header = () => {
               {/* hi saaji */}
 
               <button
-                className="rounded-lg xl:hidden focus:outline-none focus:shadow-outline"
+                className="rounded-lg lg:hidden focus:outline-none focus:shadow-outline"
                 onClick={() => setOpen(!open)}
               >
                 <svg
@@ -89,7 +89,7 @@ const Header = () => {
             <nav
               className={`${
                 open ? "flex" : "hidden"
-              } xl:flex flex-col xl:flex-row xl:items-center pb-4 md:pb-0 transition duration-300 ease-in-out`}
+              } lg:flex flex-col lg:flex-row lg:items-center pb-4 md:pb-0 transition duration-300 ease-in-out`}
             >
               <Link href="/market">
                 <div
@@ -102,7 +102,7 @@ const Header = () => {
                     setActiveLink("market");
                   }}
                   className={
-                    "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                    "px-2 py-2 mx-1 cursor-pointer animation-hover inline-block relative" +
                     (activeLink === "market"
                       ? " text-blue-800 animation-active "
                       : " text-black-500 hover:text-blue-800 a")
@@ -121,7 +121,7 @@ const Header = () => {
                   setActiveLink("trade");
                 }}
                 className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover  flex-col items-start relative flex " +
+                  "px-2 py-2 mx-1 cursor-pointer animation-hover  flex-col items-start relative flex " +
                   (activeLink === "trade"
                     ? " text-blue-800 animation-active "
                     : " text-black-500 hover:text-blue-800 a")
@@ -218,7 +218,7 @@ const Header = () => {
                     setActiveLink("pricing");
                   }}
                   className={
-                    "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative " +
+                    "px-2 py-2 mx-1 cursor-pointer animation-hover inline-block relative " +
                     (activeLink === "pricing"
                       ? " text-blue-800 animation-active "
                       : " text-black-500 hover:text-blue-800 a")
@@ -238,7 +238,7 @@ const Header = () => {
                     setActiveLink("testimoni");
                   }}
                   className={
-                    "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                    "px-2 py-2 mx-1 cursor-pointer animation-hover inline-block relative" +
                     (activeLink === "testimoni"
                       ? " text-blue-800 animation-active "
                       : " text-black-500 hover:text-blue-800 a")
@@ -278,7 +278,7 @@ const Header = () => {
                   setActiveLink("learn");
                 }}
                 className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover flex-col items-start relative flex  w-100" +
+                  "px-2 py-2 mx-1 cursor-pointer animation-hover flex-col items-start relative flex  w-100" +
                   (activeLink === "learn"
                     ? " text-blue-800 animation-active "
                     : " text-black-500 hover:text-blue-800 a")
@@ -326,7 +326,7 @@ const Header = () => {
                 )}
               </div>
 
-              <div className="xl:hidden md:flex   flex col-start-10 gap-3 col-end-12 font-medium  w-100   items-center">
+              <div className="lg:hidden md:flex   flex col-start-10 gap-2 col-end-12 font-medium  w-100   items-center">
                   <IoGiftOutline size={25} color="red" />
                   <RxQuestionMarkCircled size={25} />
                 <Link href="/">
@@ -344,19 +344,20 @@ const Header = () => {
                 </Link>
               </div>
             </nav>
-            <div className="hidden md:hidden xl:flex col-start-10 gap-3 col-end-12 font-medium  w-100   items-center">
+            <div className="hidden md:hidden lg:flex col-start-10 gap-2 col-end-12 font-medium  w-100   items-center">
                 <IoGiftOutline size={25} color="red" />
                 <RxQuestionMarkCircled size={25} />
               <Link href="/">
-                <div className="flex items-center  text-black-600 mx-2 sm:mx-2 capitalize tracking-wide hover:text-blue-800 transition-all">
-                  <FaFingerprint size={20} />   Sign In
+                <div className="flex items-center  text-black-600 mx-1 sm:mx-1 capitalize tracking-wide hover:text-blue-800 transition-all">
+                  <FaFingerprint size={20} />  <span>Login</span>
                 </div>
               </Link>
               <Link href="/whitelist">
-                <ButtonOutline>Sign Up</ButtonOutline>
+                <button className="xl:font-medium xl:tracking-wide lg:py-2 px-2 xl:px-8 border border-blue-800 text-blue-800 bg-white-500 outline-none  rounded-large
+      hover:bg-blue-800 hover:text-white-500 transition-all hover:shadow-blue">Sign Up</button>
               </Link>
               <Link href="/">
-                <div className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-blue-800 transition-all">
+                <div className="text-black-600 mx-2 lg:hidden   capitalize tracking-wide hover:text-blue-800 transition-all">
                     USD
                 </div>
               </Link>

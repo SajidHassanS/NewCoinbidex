@@ -43,7 +43,7 @@ const Hero = ({ }) => {
           className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2  py-6 sm:py-16"
 
         >
-          <div className="flex px-3  grid-cols-7 flex-col justify-center items-start">
+          <div className="flex px-3  grid-cols-7 flex-col justify-center lg:justify-start lg:mt-24 items-start">
             <h1 className="text-3xl   py-4 lg:text-4xl xl:text-6xl text-black-600 leading-relaxed">
               Buy & Sell Digital<br /> Assets on
               <span className="text-blue-800 font-extrabold"> Coinbidex</span>.
@@ -56,7 +56,7 @@ const Hero = ({ }) => {
 
           </div>
           <div className="mt-8 grid-cols-5 ">
-            <div className="flex justify-end mx-5 xl:mx-2  ">
+            <div className="flex justify-center lg:justify-end mx-5 xl:mx-2  ">
 
 
               {/* <iframe
