@@ -35,13 +35,13 @@ const NumberTable = () => {
   return (
     <div className=" flex justify-between bg-gradient-to-r from-blue-800 to-blue-500 px-10 py-3 md:none">
       <div className="py-3 col-span-3 ">
-      <h1 className="text-white-500 text-2xl lg:text-2xl xl:text-2xl text-white-900 font-medium  leading-normal">
+      <h1 className="text-white-500 text-xl  xl:text-xl 2xl:text-2xl text-white-900 font-medium  leading-normal">
              Countdown To Coinbidex
             </h1>
        
         <img src={beta} alt="" width={50} />
       </div>
-      <div className="flex  shadow-lg gap-4 bg-gradient-to-l from-blue-800 to-blue-500">
+      <div className="flex  shadow-lg xl:gap-4 bg-gradient-to-l from-blue-800 to-blue-500">
         <div className=" px-4 text-xl text-white-300 py-2  flex flex-col items-center hover:bg-blue-800 hover:text-white-300">
           {days}
           <span className="text-xs text-white-300">DAYS</span>

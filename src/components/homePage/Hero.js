@@ -56,7 +56,7 @@ const Hero = ({ }) => {
 
           </div>
           <div className="mt-8 grid-cols-5 ">
-            <div className="flex justify-end ">
+            <div className="flex justify-end mx-5 xl:mx-2  ">
 
 
               {/* <iframe

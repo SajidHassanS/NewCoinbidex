@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaFingerprint } from "react-icons/fa";
@@ -48,22 +48,22 @@ const Header = () => {
           <NumberTable />
         </div>
         <div className="w-full text-gray-700 bg-cream ">
-          <div className="flex flex-col  px-8 py-3 mx-auto md:items-center md:justify-between md:flex-row relative">
+          <div className="flex flex-col  px-8 py-3 mx-auto xl:items-center xl:justify-between xl:flex-row relative">
             <div className="flex flex-row items-center justify-between ">
               <div className="relative ">
-              <Link href="/">
-                <div
-                  className="col-start-1 col-end-2 flex items-center cursor-pointer"
-                  style={{ width: "180px", height: "auto" }}
-                >
-                  <Image src={LogoVPN} />
-                </div>
+                <Link href="/">
+                  <div
+                    className="col-start-1 col-end-2 flex items-center cursor-pointer"
+                    style={{ width: "180px", height: "auto" }}
+                  >
+                    <Image src={LogoVPN} />
+                  </div>
                 </Link>
               </div>
               {/* hi saaji */}
-              
+
               <button
-                className="rounded-lg md:hidden focus:outline-none focus:shadow-outline"
+                className="rounded-lg xl:hidden focus:outline-none focus:shadow-outline"
                 onClick={() => setOpen(!open)}
               >
                 <svg
@@ -89,27 +89,27 @@ const Header = () => {
             <nav
               className={`${
                 open ? "flex" : "hidden"
-              } md:flex flex-col md:flex-row md:items-center pb-4 md:pb-0 transition duration-300 ease-in-out`}
+              } xl:flex flex-col xl:flex-row xl:items-center pb-4 md:pb-0 transition duration-300 ease-in-out`}
             >
-               <Link href="/market">
-              <div
-                activeClass="active"
-                to="market"
-                spy={true}
-                smooth={true}
-                duration={1000}
-                onSetActive={() => {
-                  setActiveLink("market");
-                }}
-                className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                  (activeLink === "market"
-                    ? " text-blue-800 animation-active "
-                    : " text-black-500 hover:text-blue-800 a")
-                }
-              >
-                Market
-              </div>
+              <Link href="/market">
+                <div
+                  activeClass="active"
+                  to="market"
+                  spy={true}
+                  smooth={true}
+                  duration={1000}
+                  onSetActive={() => {
+                    setActiveLink("market");
+                  }}
+                  className={
+                    "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                    (activeLink === "market"
+                      ? " text-blue-800 animation-active "
+                      : " text-black-500 hover:text-blue-800 a")
+                  }
+                >
+                  Market
+                </div>
               </Link>
               <div
                 activeClass="active"
@@ -148,38 +148,54 @@ const Header = () => {
                       <div className=" w-full pr-2">
                         {/* Left side menu items here */}
                         <div className="w-full">
-                        <Link href="/p2p">
-                        <div className="p-3 w-full  hover:bg-blue-100">
-                         <h3 className=" text-black-600 text-lg ">P2P</h3>
-                          <p>Buy & sell cryptocurrencies using bank transfer and 800+ options</p>
-                          </div>
+                          <Link href="/p2p">
+                            <div className="p-3 w-full  hover:bg-blue-100">
+                              <h3 className=" text-black-600 text-lg ">P2P</h3>
+                              <p>
+                                Buy & sell cryptocurrencies using bank transfer
+                                and 800+ options
+                              </p>
+                            </div>
                           </Link>
-                          <Link href="/copytrading" >
-                          
-                          <div className="p-3  w-full hover:bg-blue-100">
-                          <h3 className=" text-black-600 text-lg ">Margin Trading</h3>
-                          <p>Increase your profits with leverage</p>
-                          </div>
+                          <Link href="/copytrading">
+                            <div className="p-3  w-full hover:bg-blue-100">
+                              <h3 className=" text-black-600 text-lg ">
+                                Margin Trading
+                              </h3>
+                              <p>Increase your profits with leverage</p>
+                            </div>
                           </Link>
-                          <Link href="/market"  target="_blank">
-                          <div className="p-3 w-full hover:bg-blue-100">
-                          <h3 className=" text-black-600 text-lg ">Crypto Pricing</h3>
-                          <p>All Crypto Prising Chart</p>
-                          </div>
+                          <Link href="/market" target="_blank">
+                            <div className="p-3 w-full hover:bg-blue-100">
+                              <h3 className=" text-black-600 text-lg ">
+                                Crypto Pricing
+                              </h3>
+                              <p>All Crypto Prising Chart</p>
+                            </div>
                           </Link>
-                         
-                          <Link href="https://flooz.xyz/buy/eth"  target="_blank">
-                          <div className="p-3 w-full hover:bg-blue-100">
-                          <h3 className=" text-black-600 text-lg ">Buy Crypto Via 3rd Party</h3>
-                          <p>Buy Crypto Via Visa or MasterCard</p>
-                          </div>
-                        </Link>
 
-                        <Link href="https://swap.coinbidex.com/" target="_blank">
-                          <div className="p-3 w-full hover:bg-blue-100">
-                          <h3 className=" text-black-600 text-lg ">Quick Buy & Swap</h3>
-                          <p>Buy & Sell on the spot</p>
-                          </div>
+                          <Link
+                            href="https://flooz.xyz/buy/eth"
+                            target="_blank"
+                          >
+                            <div className="p-3 w-full hover:bg-blue-100">
+                              <h3 className=" text-black-600 text-lg ">
+                                Buy Crypto Via 3rd Party
+                              </h3>
+                              <p>Buy Crypto Via Visa or MasterCard</p>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href="https://swap.coinbidex.com/"
+                            target="_blank"
+                          >
+                            <div className="p-3 w-full hover:bg-blue-100">
+                              <h3 className=" text-black-600 text-lg ">
+                                Quick Buy & Swap
+                              </h3>
+                              <p>Buy & Sell on the spot</p>
+                            </div>
                           </Link>
                         </div>
                       </div>
@@ -192,69 +208,67 @@ const Header = () => {
                 )}
               </div>
               <Link href="/bidexpay">
-              <div
-                activeClass="active"
-                to="pricing"
-                spy={true}
-                smooth={true}
-                duration={1000}
-                onSetActive={() => {
-                  setActiveLink("pricing");
-                }}
-                className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative " +
-                  (activeLink === "pricing"
-                    ? " text-blue-800 animation-active "
-                    : " text-black-500 hover:text-blue-800 a")
-                }
-              >
-                Bidex Pay
-              </div>
+                <div
+                  activeClass="active"
+                  to="pricing"
+                  spy={true}
+                  smooth={true}
+                  duration={1000}
+                  onSetActive={() => {
+                    setActiveLink("pricing");
+                  }}
+                  className={
+                    "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative " +
+                    (activeLink === "pricing"
+                      ? " text-blue-800 animation-active "
+                      : " text-black-500 hover:text-blue-800 a")
+                  }
+                >
+                  Bidex Pay
+                </div>
               </Link>
               <Link href="/copytrading">
-              <div
-                activeClass="active"
-                to="testimoni"
-                spy={true}
-                smooth={true}
-                duration={1000}
-                onSetActive={() => {
-                  setActiveLink("testimoni");
-                }}
-                className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                  (activeLink === "testimoni"
-                    ? " text-blue-800 animation-active "
-                    : " text-black-500 hover:text-blue-800 a")
-                }
-              >
-                Copy Trading
-              </div>
+                <div
+                  activeClass="active"
+                  to="testimoni"
+                  spy={true}
+                  smooth={true}
+                  duration={1000}
+                  onSetActive={() => {
+                    setActiveLink("testimoni");
+                  }}
+                  className={
+                    "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                    (activeLink === "testimoni"
+                      ? " text-blue-800 animation-active "
+                      : " text-black-500 hover:text-blue-800 a")
+                  }
+                >
+                  Copy Trading
+                </div>
               </Link>
               <Link href="/stacking">
-              <div
-                activeClass="active"
-                to="testimoni"
-                spy={true}
-                smooth={true}
-                duration={1000}
-                onSetActive={() => {
-                  setActiveLink("testimoni");
-                }}
-                className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
-                  (activeLink === "testimoni"
-                    ? " text-blue-800 animation-active "
-                    : " text-black-500 hover:text-blue-800 a")
-                }
-              >
-                Earn
-              </div>
+                <div
+                  activeClass="active"
+                  to="testimoni"
+                  spy={true}
+                  smooth={true}
+                  duration={1000}
+                  onSetActive={() => {
+                    setActiveLink("testimoni");
+                  }}
+                  className={
+                    "px-4 py-2 mx-2 cursor-pointer animation-hover inline-block relative" +
+                    (activeLink === "testimoni"
+                      ? " text-blue-800 animation-active "
+                      : " text-black-500 hover:text-blue-800 a")
+                  }
+                >
+                  Earn
+                </div>
               </Link>
 
-              
-
-<div
+              <div
                 activeClass="active"
                 to="learn"
                 spy={true}
@@ -264,7 +278,7 @@ const Header = () => {
                   setActiveLink("learn");
                 }}
                 className={
-                  "px-4 py-2 mx-2 cursor-pointer animation-hover flex-col items-start relative flex md:items-center w-100" +
+                  "px-4 py-2 mx-2 cursor-pointer animation-hover flex-col items-start relative flex  w-100" +
                   (activeLink === "learn"
                     ? " text-blue-800 animation-active "
                     : " text-black-500 hover:text-blue-800 a")
@@ -291,15 +305,16 @@ const Header = () => {
                       <div className=" w-full pr-2">
                         {/* Left side menu items here */}
                         <div className="w-full">
-                        <div className="p-3 w-full  hover:bg-blue-100">
-                          <h3 className=" text-black-600 text-lg ">Discover</h3>
-                          <p>Latest Updates About Us</p>
+                          <div className="p-3 w-full  hover:bg-blue-100">
+                            <h3 className=" text-black-600 text-lg ">
+                              Discover
+                            </h3>
+                            <p>Latest Updates About Us</p>
                           </div>
                           <div className="p-3  w-full hover:bg-blue-100">
-                          <h3 className=" text-black-600 text-lg ">Digest</h3>
-                          <p>Coinbidex Business Magazine</p>
+                            <h3 className=" text-black-600 text-lg ">Digest</h3>
+                            <p>Coinbidex Business Magazine</p>
                           </div>
-                       
                         </div>
                       </div>
                       {/* <div className="w-1/2 pl-2">
@@ -310,35 +325,35 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              <div className=" flex justify-center gap-1  md:hidden col-start-10  col-end-12  font-medium    items-center">
-                  <IoGiftOutline size={25}  />
+
+              <div className="xl:hidden md:flex   flex col-start-10 gap-3 col-end-12 font-medium  w-100   items-center">
+                  <IoGiftOutline size={25} color="red" />
                   <RxQuestionMarkCircled size={25} />
                 <Link href="/">
-                  <span className="text-blue-800  sm:mx-4 capitalize tracking-wide hover:text-blue-800 transition-all">
-                      Sign In
-                  </span>
+                  <div className="flex items-center  text-black-600 mx-2 sm:mx-2 capitalize tracking-wide hover:text-blue-800 transition-all">
+                    <FaFingerprint size={20} />   Sign In
+                  </div>
                 </Link>
                 <Link href="/whitelist">
-                <ButtonOutline>Sign Up</ButtonOutline>
+                  <ButtonOutline>Sign Up</ButtonOutline>
                 </Link>
                 <Link href="/">
-                  <div className="text-black-600  sm:mx-4 capitalize tracking-wide hover:text-blue-800 transition-all">
+                  <div className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-blue-800 transition-all">
                       USD
                   </div>
                 </Link>
               </div>
             </nav>
-            <div className="hidden  md:flex col-start-10 gap-3 col-end-12 font-medium  w-100   items-center">
+            <div className="hidden md:hidden xl:flex col-start-10 gap-3 col-end-12 font-medium  w-100   items-center">
                 <IoGiftOutline size={25} color="red" />
                 <RxQuestionMarkCircled size={25} />
               <Link href="/">
                 <div className="flex items-center  text-black-600 mx-2 sm:mx-2 capitalize tracking-wide hover:text-blue-800 transition-all">
-                <FaFingerprint size={20} />      Sign In 
-
+                  <FaFingerprint size={20} />   Sign In
                 </div>
               </Link>
               <Link href="/whitelist">
-              <ButtonOutline>Sign Up</ButtonOutline>
+                <ButtonOutline>Sign Up</ButtonOutline>
               </Link>
               <Link href="/">
                 <div className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-blue-800 transition-all">
