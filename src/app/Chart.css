@@ -1,0 +1,345 @@
+.paper{
+    background: color #414141 !important;;
+}
+.css-1wbik7y-MuiPaper-root{
+    background-color: #212121 !important;
+    color: #fff !important;
+}
+.css-1ngxuv6-MuiPaper-root{
+    background-color: #000 !important;
+    color: #fff !important;
+}
+.css-1ixqqn8-MuiPaper-root{
+    background-color: #181818  !important;
+    color: #fff !important;
+}
+#box52, #box53
+{
+    width: 40%;
+    height: 46%;
+    top: 13%;
+    position: absolute;
+    z-index: 1;
+    border-radius:10px;
+}
+
+#box52
+{
+    
+    left: 9%;
+    border-left: 2px solid #80808061;
+    border-bottom: 2px solid #80808061;
+    border-top: 2px solid #80808061;
+ 
+   
+}
+ #box53
+{
+    right: 9%;
+    border-top: 2px solid #80808061;
+    border-right: 2px solid #80808061;
+    border-bottom: 2px solid #80808061;
+   
+}
+#box1, #box2
+{
+    width: 27%;
+    height: 20%;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 44%;
+
+}
+
+/* #box31
+{
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    left: 34%;
+    top: -5%;
+    border-left: 2px dashed grey;
+    border-right: 2px dashed grey;
+    border-top: 2px dashed grey;
+    z-index: 1;
+} */
+#box1
+{
+    
+    left: 22%;
+    border-left: 2px solid #80808061;
+    /* border-right: 2px dashed black; */
+    border-bottom: 2px solid #80808061;
+    z-index: 1;
+}
+ #box2 
+{
+    
+    right: 24%;
+    border-left: 2px solid #80808061;
+    border-right: 2px solid #80808061;
+    border-bottom: 2px solid #80808061;
+    z-index: 1;
+}
+ #box3
+{
+    width: 23%; 
+    height:15%;
+    position: absolute;
+    right: 39%;
+    bottom:35%;
+    z-index: 2;
+   
+}
+
+
+#box4, #box5, #box6,#box7  {
+    width: 23%;
+    /* height:8%; */
+    position: absolute;
+    top:26% ;
+    z-index: 2;
+   
+
+}
+
+
+#box4
+{
+    right: 13%;
+}
+#box5
+{
+    right: 39%;
+}
+
+#box6
+{
+    left: 12%;
+}
+
+#box10, #box11, #box12  {
+    width: 23%;
+    /* height:8%; */
+    position: absolute;
+    z-index: 2;
+   bottom:9%
+    
+  
+}
+#box10
+{
+    right: 13%;
+   
+
+}
+#box11
+{
+    right: 39%;
+   
+}
+
+#box12
+{    left: 12%;
+   
+}
+#box21, #box22
+{
+        width: 42%;
+    height: 21.5%;
+    position: absolute;
+    border-radius: 5px;
+    bottom:16.5%;
+}
+
+#box21
+{
+    
+    left: 9%;
+    border-top: 2px solid #80808061;
+    border-left: 2px solid #80808061;
+  
+    z-index: 1;
+}
+#box22
+{
+    
+    right: 9%;
+    border-left: 2px solid #80808061;
+    border-right: 2px solid #80808061;
+    border-top: 2px solid #80808061;
+    z-index: 1;
+}
+#box23
+{
+    width: 6%;
+    height: 21%;
+    border-radius: 10px;
+    position: absolute;
+    left: 9%;
+    bottom: 16%;
+    border-bottom: 2px solid #80808061;
+
+    z-index: 1;
+}
+#box24
+{
+    width: 5%;
+    height: 25%;
+    border-radius: 10px;
+    position: absolute;
+    right: 9%;
+    bottom: 16%;
+    border-bottom: 2px solid #80808061;
+    z-index: 1;
+}
+
+#box51 {
+    width: 23%;
+    height:auto;
+    position: absolute;
+    right: 39%;
+    top: 5%;
+    z-index: 2;
+  
+    
+  
+}
+
+
+.css-10hburv-MuiTypography-root{
+    font-size: 0.9rem !important;
+}
+.css-vpq16n-MuiListItem-root{
+    padding: 4% !important;
+}
+.css-vpq16n-MuiListItem-root{
+    padding: 4% !important;
+
+}
+.css-1wbik7y-MuiPaper-root{
+    border-radius:10px !important;
+}
+@media screen and (max-width: 1023px) {
+    .css-vpq16n-MuiListItem-root{
+        padding: 0% !important;
+    }
+    .css-vpq16n-MuiListItem-root{
+        padding: 0% !important;
+    }
+    .css-1svr8cj-MuiListItem-root{
+        padding:0% !important;
+    }
+    .paper{
+        /* padding: 0% !important; */
+        font-size:1rem!important;
+    }
+    .css-2ulfj5-MuiTypography-root{
+        font-size:15px !important;
+    }
+    
+}
+
+@media screen and (max-width: 426px) {
+    #box4, #box5, #box6, #box7, #box51,#box10, #box11, #box12,#box3{
+        width: 70% !important;
+    }
+    #box51{    
+        right: 15% !important;
+        top: -10% !important;  
+    } 
+    #box6{
+        left: 15% !important;
+        top: 5% !important;
+    }
+    #box5 {
+        right: 15% !important;
+        top: 20% !important;
+    }
+    #box4 {
+        right: 15%;
+        top: 35%;
+    }
+    .css-10hburv-MuiTypography-root {
+        font-size: 0.7rem !important;
+    }
+    #box10 {
+        right: 13% !important;
+        bottom: -12% !important;
+    }
+    #box12 {
+        left: 17% !important;
+        bottom: 3% !important;
+    }
+    #box11 {
+        right: 13%  !important;
+        bottom: 18%  !important;
+    }
+    #box3 {
+        
+        right: 15%;
+        bottom: 34%;
+       
+    }
+    #box53{
+        right: 5% !important;
+        width: 40% !important;
+        height: 62% !important;
+        top: -3% !important;
+    }
+    #box52{
+        right: 8% !important;
+        width: 40% !important;
+        height: 45% !important;
+        top: 11% !important;
+        border-top: 2px solid #80808061;
+         border-right: 2px solid #80808061;
+         border-bottom: 2px solid #80808061;
+         border-left:unset !important;
+    left: unset  !important;
+    }
+    #box22 {
+        width: 42% !important;
+        height: 44.5% !important;
+        bottom: -5.5% !important;
+        right: 6% !important;
+    }
+    #box24 {
+        width: 9% !important;
+        height: 25% !important;
+        right: 6% !important;
+        bottom: -6% !important;
+    }
+  
+    #box21 {
+        left: 12%;
+        border-top: 2px solid #80808061;
+        border-bottom: 2px solid #80808061;
+        border-left: 2px solid #80808061;
+        width: 42%;
+        height: 12.5%;
+         border-radius: 10px;
+         bottom: 24.5%;
+    }
+    #box1{
+        width: 27%;
+    height: 30%;
+    left: 9% !important;
+    bottom: 9%;
+    border-top: 2px solid #80808061;
+    }
+    #box2 {
+        right: 65% !important;
+        width: 27% !important;
+        height: 30% !important;
+        bottom: 43% !important;
+        border-top: 2px solid #80808061 !important;
+        border-right:unset !important;
+    }
+    #box23{
+        width: 11% !important;
+        height: 16% !important;
+        left: 41% !important;
+        bottom: 40% !important;    
+        border-right:2px solid #80808061 !important; }
+} 
